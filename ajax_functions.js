@@ -15,7 +15,7 @@ function findPhone(num) {
                 displayPhoneNum(this.responseText);
             } else if (this.status === 404){
                 // No postal code found
-                displayPhoneNum('{ "areacode" : "none" }');
+                displayPhoneNum('{ "phone" : "none" }');
             } else {
                 console.log("We have a problem: " + this.status);
             }
@@ -34,7 +34,7 @@ function findPhone(num) {
  */
 function displayPhoneNum(data){
     var number = JSON.parse(data);
-    if(number.areacode === "none") {
+    if(number.phone === "none") {
         document.getElementById("number").className = "alert alert-warning";
         document.getElementById("number").innerHTML = "Phone number is not valid"
     } else {
